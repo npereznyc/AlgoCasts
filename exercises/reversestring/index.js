@@ -6,6 +6,20 @@
 //   reverse('hello') === 'olleh'
 //   reverse('Greetings!') === '!sgniteerG'
 
-function reverse(str) {}
+function reverse(str) {
+    // create new string variable = empty string
+    // loop over string
+    // splice? - take last element from string and push into new string
+    let newstr=""
+    for (let i = str.length-1; i >= 0; i--) {
+        str.slice(str.length-1)
+        newstr += str[i]
+    }
+    return newstr
+}
+
+reverse('apple')
+reverse('hello')
+reverse('Greetings!')
 
 module.exports = reverse;
