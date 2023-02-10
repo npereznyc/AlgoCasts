@@ -18,6 +18,16 @@ function reverse(str) {
     return newstr
 }
 
+// function reverse(str) {
+//     let newstr=""
+//     // new for loop syntax if you're iterating over every element:
+//     for (let letter of str) {
+//         newstr = letter + newstr;
+//     }
+//     return newstr
+// }
+
+
 reverse('apple')
 reverse('hello')
 reverse('Greetings!')
