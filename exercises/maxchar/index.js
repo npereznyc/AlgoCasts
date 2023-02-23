@@ -18,11 +18,21 @@ function maxChar(str) {
     for (let char of str) {
         chars[char] = chars[char]+1 || 1
     }
-    console.log(chars) // { a: 1, b: 1, c: 7, d: 1 }
+    // console.log(chars) // { a: 1, b: 1, c: 7, d: 1 }
     const values = Object.values(chars)
-    console.log('value1: ', values[0]) // value1:  1
+    // console.log('values: ', values) //values:  [ 1, 1, 7, 1 ]
+    //itrate over array of values to find largest one
+    let max=values[0]
+    for (let i=0; i<values.length; i++) {
+        if (values[i]>max) 
+            max=values[i]
+        }
+        // console.log('max: ', max) 
+    const key = Object.keys(chars).find(key=>chars[key]===max)
+    // console.log(key)
+    return key
  }
 
 module.exports = maxChar;
 
-maxChar("abcccccccd") === "c"
+maxChar("abcccccccd")
