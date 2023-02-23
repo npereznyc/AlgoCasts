@@ -16,7 +16,7 @@ function maxChar(str) {
     const chars = {}
     //iterate over string, assigning count to each character and increment it by 1 every time it's passed over
     for (let char of str) {
-        chars[char] = chars[char]+1 || 1
+        chars[char] = chars[char]+1 || 1 //shorter, cleaner way to writing an if/else
     }
     // console.log(chars) // { a: 1, b: 1, c: 7, d: 1 }
     const values = Object.values(chars)
@@ -32,6 +32,17 @@ function maxChar(str) {
     // console.log(key)
     return key
  }
+//lines 22 - 34 could be replaced with the following, if I were to iterate over the object:
+ //to iterate over an object, can use a for/in loop (as opposed to a for/of loop):
+    // let max=0
+    // let maxChar=''
+    // for(let char in chars) { //char is assigned the keys in the object, not the values
+    //     if(chars[char] > max) { /if the value of char is greater than max...
+    //         max=chars[char] //assign that char to max
+    //         maxChar=char // and assign the value of that char to maxChar
+    //     }
+    // }
+    // return maxChar
 
 module.exports = maxChar;
 
