@@ -52,21 +52,23 @@ function anagrams(stringA, stringB) {
     console.log('B: ', alphabeticalB)
 
     if (Object.keys(alphabeticalA).length == Object.keys(alphabeticalB).length) {
-        for(let i = 0; i<=Object.keys(alphabeticalA).length; i++) {
+        for(let i = 0; i<Object.keys(alphabeticalA).length; i++) {
             // console.log(Object.values(alphabeticalA)[i])
             if (Object.values(alphabeticalA)[i] === Object.values(alphabeticalB)[i]) {
-                console.log(true) 
+                return true
             } else {
-                console.log(false) 
+                return false
             }
         }
     } else {
-        console.log(false)
+        return false
     }
 }
 
-
-//.replace
 // anagrams('rail safety', 'fairy tales')
-anagrams('Hi there', 'Bye there')
+anagrams('hello', 'llohe')
+// anagrams('Hi there', 'Bye there')
+// anagrams('RAIL! SAFETY!', 'fairy tales')
+// anagrams('Whoa! Hi!', 'Hi! Whoa!')
+// anagrams('One One', 'Two two two')
 module.exports = anagrams;
