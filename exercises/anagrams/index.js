@@ -26,17 +26,21 @@ function anagrams(stringA, stringB) {
     }
     console.log('mapA: ', mapA)
 
+    //instantiate 2nd object:
     const mapB = {}
     for (let char of strB) {
         mapB[char] = mapB[char] + 1 || 1
     }
     console.log('mapB: ', mapB)
 
+
     // const keysA=Object.keys(mapA)
     // console.log('keysA: ', keysA)
 
     // const keysB=Object.keys(mapB)
     // console.log('keysB: ', keysB)
+
+    //alphabetize both maps by their keys so that I can compare their values
     const alphabeticalA = Object.keys(mapA).sort().reduce(
         (obj, key) => {
             obj[key] = mapA[key];
