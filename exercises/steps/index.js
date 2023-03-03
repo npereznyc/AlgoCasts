@@ -18,10 +18,18 @@
 //       '####'
 
 function steps(n) {
-    for(let i=1; i<=n; i++) {
-        console.log(i)
-    }
+    //iterate through rows, from 0 to n
+    for(let row=0; row<n; row++) {
+        let step=''
+        for(let col=0; col<n; col++) {
+            if (col<=row) {
+                step+='#'
+            } else {
+                step+=' '
+            }
+        }console.log(step)
+    } 
 }
-steps(2)
+steps(3)
 
 module.exports = steps;
