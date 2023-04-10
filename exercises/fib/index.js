@@ -8,30 +8,40 @@
 // Example:
 //   fib(4) === 3
 
-//instantiate an array with 0 and 1
-//iterate from 0 to n
-//push the sum of the last two elements into the array
+
+
+//write a function that returns the nth element of the fibonacci sequence
+
+//generate the fibonacci series up to number n
+    //instantiate an array with 0 and 1
+    //iterate from 0 to n
+    //push the sum of the last two elements into the array
 //return the last element of the array
 
-//write a function that uses recursion to return the nth element of the fibonacci sequence
-
 function fib(n) {
-    if (n < 2) {
-        return n
+    let fibArr=[0,1]
+    for(let i=2; i<=n; i++) {
+        fibArr.push(fibArr[i-2]+fibArr[i-1])
     }
-    return fib(n-1) + fib(n-2)
+    console.log(fibArr)
+    return fibArr[n]
 }
-fib(15) 
+
+fib(10)
+
+
 module.exports = fib;
 
 
+//write a function that uses recursion to return the nth element of the fibonacci sequence
+
 // function fib(n) {
-//     let fibarr = [0,1]
-//     for (let i = 2; i <= n; i++) {
-//         fibarr.push(fibarr[i-2] + fibarr[i-1])
+//     if (n < 2) {
+//         return n
 //     }
-//     // console.log(fibarr)
-//     return fibarr[n]
+//     return fib(n-1) + fib(n-2)
+
+//     //3+2=5
 // }
-// fib(15) 
+// fib(4) 
 // module.exports = fib;
