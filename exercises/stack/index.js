@@ -15,12 +15,12 @@ class Stack {
         this.data=[]
     }
     push(record) {
-        return this.data.push(record)
+        this.data.push(record)
     }
-    pop(record){
-        return this.data.pop(record)
+    pop(){
+        return this.data.pop()
     }
-    peek(record){
+    peek(){
         return this.data[this.data.length-1]
     }
 }
