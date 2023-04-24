@@ -14,6 +14,7 @@ function capitalize(str) {
     }
     return result
 }
+//the first solution in index.js is stronger
 
 capitalize('a short sentence')
 

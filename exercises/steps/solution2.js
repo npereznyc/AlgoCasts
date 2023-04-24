@@ -5,6 +5,7 @@ function steps(n, row=0, stair='') {
   if(row===n) {
     return;
   }
+   //after checking for the base case, we want to do some kind of work and then call our function again:
   if (n===stair.length) {
     console.log(stair)
     steps(n, row+1)
@@ -15,12 +16,9 @@ function steps(n, row=0, stair='') {
   } else {
     stair += ' '
   }
+  //now we call the function again but we change the argument somehow so we avoid infinite recursion. We want to get us to our base case, so we pass in row as it's new value.
   steps(n, row, stair)
-  //after checking for the base case, we want to do some kind of work and then call our function again:
-  //in this case, what we want to do is print the number, n:
-//   console.log(n)
-  //now we call the function again but we change the argument somehow so we avoid an infinite loop. We want to get us to our base case, so we subtract by 1 to get us down to 0.
-//   steps(n - 1)
+
 }
 steps(4)
 

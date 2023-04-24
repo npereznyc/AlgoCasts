@@ -13,10 +13,12 @@ function chunk(array, size) {
     //iterate over array
     //splice array at the given size
     //push sliced elements into empty array
-    newArr=[]
+    const newArr=[]
     for(let piece of array) {
         piece = array.splice(0,size)
         newArr.push(piece)
+        //could also condense this into one line:
+            // newArr.push(array.splice(0, size))
     }
     if(array.length>0) {
         newArr.push(array)

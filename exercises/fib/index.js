@@ -50,13 +50,15 @@
 //improve runtime complexity by adding a memoization function:
 
 function memoize(func) {
-    const cache = {} // a record of all previous call to this function and their respective results
+    const cache = {} // a record of all previous calls to this function and their respective results
     return function(...args) { //this function is going to receive the arguments that are intended for the slowFib function. We use ...args because we don't know how many arguments will be passed to the original function, so we want it to take all the arguments and assign them as an array to this variable called args.
         if(cache[args]) { //have we ever called this function with this particular set of arguments? If so, return that and don't do any more work.
             return cache[args] 
         }
         const result = func.apply(this, args);
         cache[args]= result
+
+        console.log(cache)
 
         return result
 

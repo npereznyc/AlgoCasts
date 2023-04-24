@@ -6,26 +6,25 @@
 //   reverse('hello') === 'olleh'
 //   reverse('Greetings!') === '!sgniteerG'
 
-function reverse(str) {
-    // create new string variable = empty string
-    // loop over string
-    // splice? - take last element from string and push into new string
-    let newstr=""
-    for (let i = str.length-1; i >= 0; i--) {
-        str.slice(str.length-1)
-        newstr += str[i]
-    }
-    return newstr
-}
-
 // function reverse(str) {
+//     // create new string variable = empty string
+//     // loop over string
+//     // splice? - take last element from string and push into new string
 //     let newstr=""
-//     // new for loop syntax if you're iterating over every element:
-//     for (let letter of str) {
-//         newstr = letter + newstr;
+//     for (let i = str.length-1; i >= 0; i--) {
+//         newstr += str[i]
 //     }
 //     return newstr
 // }
+
+function reverse(str) {
+    let newstr=""
+    // new for loop syntax if you're iterating over every element:
+    for (let letter of str) {
+        newstr = letter + newstr;
+    }
+    console.log(newstr) 
+}
 
 
 reverse('apple')
