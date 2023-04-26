@@ -15,6 +15,9 @@ class LinkedList {
     }
     insertFirst(data) {
         const node = new Node(data, this.head); //we don't want to replace any existing head node, we want to insert this node ahead of it (replacing the head node), so we pass this.head as the second argument bc the second argument is the next value, so it reassigns the existing head node to the next value of this new node.
+        this.head = node;
+        //we can condense this as follows:
+        //this.head = new Node(data, this.head)
 
     }
 }
