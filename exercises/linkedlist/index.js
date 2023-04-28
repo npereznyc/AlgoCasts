@@ -20,11 +20,29 @@ class LinkedList {
         //this.head = new Node(data, this.head)
 
     }
-}
+
+    size() {
+        let counter=0; //this variable will increment to count the number of nodes.
+        let node = this.head; //getting a reference to the first node inside the linked list
+
+        while(node){ //when we first enter the while loop, if the linked list does not have a head node assigned to it, then the while loop will check to see if node is a truthy or falsy value. If this.head does not exist, then the while loop will fail and won't run.
+            //if there is a head node, then the loop will run
+            counter++; //increment the counter by 1 bc we just found one node.
+            node = node.next; //reassign 'node' to the next property of the current node. Eventually node = null when we reach the tail and the loop will stop running.
+        }
+        return counter
+    }
+ }
 
 //real usage of linked list:
-//const list = new LinkedList();
-//list.head = new Node(10)
+const list = new LinkedList('a');
+// list.head = new Node('a')
+list.insertFirst('b');
+list.insertFirst('c');
+list.insertFirst('d');
+console.log(list.size())
+
+// const list = new LinkedList(10)
     //this would create a new linked list with a head node that has 10 as the data value; next would be null.
 
 module.exports = { Node, LinkedList };
