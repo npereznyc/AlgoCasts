@@ -22,10 +22,10 @@ class LinkedList {
     }
 
     size() {
-        let counter=0; //this variable will increment to count the number of nodes.
+        let counter = 0; //this variable will increment to count the number of nodes.
         let node = this.head; //getting a reference to the first node inside the linked list
 
-        while(node){ //when we first enter the while loop, if the linked list does not have a head node assigned to it, then the while loop will check to see if node is a truthy or falsy value. If this.head does not exist, then the while loop will fail and won't run.
+        while (node) { //when we first enter the while loop, if the linked list does not have a head node assigned to it, then the while loop will check to see if node is a truthy or falsy value. If this.head does not exist, then the while loop will fail and won't run.
             //if there is a head node, then the loop will run
             counter++; //increment the counter by 1 bc we just found one node.
             node = node.next; //reassign 'node' to the next property of the current node. Eventually node = null when we reach the tail and the loop will stop running.
@@ -37,87 +37,82 @@ class LinkedList {
         return this.head
     }
 
-    getLast(){
+    getLast() {
         //accounting for the scenario where there are no nodes in the list:
-        if(!this.head){ 
+        if (!this.head) {
             return null
-        } 
+        }
 
         let node = this.head //reference to the first node in the list
         // console.log(node)
-        while(node){
-            if(!node.next){
+        while (node) {
+            if (!node.next) {
                 return node; //if node.next is null, return the node because it is the tail
             }
-            node=node.next; //otherwise, update the node to the node.next value
-            }
+            node = node.next; //otherwise, update the node to the node.next value
+        }
     }
 
-    clear(){
-        this.head=null; //the linked list only knows that there are nodes because it's head has a value. If we make the head null, then there is effectively no list.
+    clear() {
+        this.head = null; //the linked list only knows that there are nodes because it's head has a value. If we make the head null, then there is effectively no list.
     }
 
-    removeFirst(){
-        if(!this.head){
+    removeFirst() {
+        if (!this.head) {
             return
         }
-        this.head=this.head.next //we want the head to point to the second node in the list, effectively removing the first node. If there is no second node, then we're reassigning this.head to null, which is also what we're looking for.
+        this.head = this.head.next //we want the head to point to the second node in the list, effectively removing the first node. If there is no second node, then we're reassigning this.head to null, which is also what we're looking for.
     }
 
-    removeLast(){
-        if(!this.head){
+    removeLast() {
+        if (!this.head) {
             return;
         }
-        if(!this.head.next){
-            this.head=null
+        if (!this.head.next) {
+            this.head = null
             return;
         }
 
-        let previous=this.head //assigning the head to the varaible previous
-        let current=this.head.next //assigning the net node to the value current
+        let previous = this.head //assigning the head to the varaible previous
+        let current = this.head.next //assigning the net node to the value current
 
-        while(current.next){ //this loop will run as long as current.next is not null
-            previous=current //previous is reassinged to the current node
-            current=current.next //the current node is reassigned to the next node
+        while (current.next) { //this loop will run as long as current.next is not null
+            previous = current //previous is reassinged to the current node
+            current = current.next //the current node is reassigned to the next node
         }
-        previous.next=null //when the while loop is done running, we will have reached the end of the list, so we assign previous.next to null, which eliminates the current node(the last node)
+        previous.next = null //when the while loop is done running, we will have reached the end of the list, so we assign previous.next to null, which eliminates the current node(the last node)
     }
 
-    insertLast(data){
+    insertLast(data) {
         //called with a Data argument.
         //create a new node, stick Data into that node, and then insert that into the very end of the list
         // get a reference to the current last node...the current last node's next property points to the new node - can use getLast() method
         //handle the case where the list is empty (there is no last node)...in this case, the head property needs to point to the new node
         const node = new Node(data)
-        if(!this.head){
+        if (!this.head) {
             this.head = node
         }
         const lastNode = this.getLast()
         lastNode.next = node
     }
 
-    getAt(index){
-        // if(!this.head){
-        //     return null
-        // } 
-        //don't actually need this if statement because if we don't find a node. the while loop won't run and we'll return null.
+    getAt(index) {
+        let counter = 0;
+        let node = this.head;
 
-        //create node variable
-        //create counter = 0
-        //iterate over list. if the index that we want is equal to counter, then we've reached the node we want...return that node.
-        let counter = 0
-        let node = this.node
-
-        while(node){
-            if(counter == index){
+        while (node) {
+            if (counter === index) {
                 return node
             }
-            counter++; 
-            node = node.next; 
+            counter++;
+            node = node.next;
         }
-        return null
+        return;
+        //this return should be return null - for some reason this is breaking my jest tests.
     }
- }
+
+
+}
 
 //real usage of linked list:
 // const list = new LinkedList();
@@ -128,6 +123,6 @@ class LinkedList {
 // console.log(list.removeLast())
 
 // const list = new LinkedList(10)
-    //this would create a new linked list with a head node that has 10 as the data value; next would be null.
+//this would create a new linked list with a head node that has 10 as the data value; next would be null.
 
 module.exports = { Node, LinkedList };
