@@ -97,33 +97,35 @@ class LinkedList {
     }
 
     getAt(index){
+        // if(!this.head){
+        //     return null
+        // } 
+        //don't actually need this if statement because if we don't find a node. the while loop won't run and we'll return null.
+
         //create node variable
         //create counter = 0
         //iterate over list. if the index that we want is equal to counter, then we've reached the node we want...return that node.
-        let counter=0; //this variable will increment to count the number of nodes.
-        let node = this.head; //getting a reference to the first node inside the linked list
+        let counter = 0
+        let node = this.node
 
-        while(node){ //when we first enter the while loop, if the linked list does not have a head node assigned to it, then the while loop will check to see if node is a truthy or falsy value. If this.head does not exist, then the while loop will fail and won't run.
-            //if there is a head node, then the loop will run
-            if(counter = index){
+        while(node){
+            if(counter == index){
                 return node
-            } else {
-                counter++; //increment the counter by 1 bc we just found one node.
-                node = node.next; //reassign 'node' to the next property of the current node. Eventually node = null when we reach the tail and the loop will stop running.
             }
-            
+            counter++; 
+            node = node.next; 
         }
+        return null
     }
-    
  }
 
 //real usage of linked list:
-const list = new LinkedList();
-list.head = new Node('a')
-list.insertFirst('b');
-list.insertFirst('c');
+// const list = new LinkedList();
+// list.head = new Node('a')
+// list.insertFirst('b');
+// list.insertFirst('c');
 // list.insertFirst('d');
-console.log(list.removeLast())
+// console.log(list.removeLast())
 
 // const list = new LinkedList(10)
     //this would create a new linked list with a head node that has 10 as the data value; next would be null.
