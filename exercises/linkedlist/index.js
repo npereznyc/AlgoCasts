@@ -84,6 +84,10 @@ class LinkedList {
     }
 
     insertLast(data){
+        //called with a Data argument.
+        //create a new node, stick Data into that node, and then insert that into the very end of the list
+        // get a reference to the current last node...the current last node's next property points to the new node - can use getLast() method
+        //handle the case where the list is empty (there is no last node)...in this case, the head property needs to point to the new node
         const node = new Node(data)
         if(!this.head){
             this.head = node
@@ -91,10 +95,26 @@ class LinkedList {
         const lastNode = this.getLast()
         lastNode.next = node
     }
-    //called with a Data argument.
-    //create a new node, stick Data into that node, and then insert that into the very end of the list
-    // get a reference to the current last node...the current last node's next property points to the new node - can use getLast() method
-    //handle the case where the list is empty (there is no last node)...in this case, the head property needs to point to the new node
+
+    getAt(index){
+        //create node variable
+        //create counter = 0
+        //iterate over list. if the index that we want is equal to counter, then we've reached the node we want...return that node.
+        let counter=0; //this variable will increment to count the number of nodes.
+        let node = this.head; //getting a reference to the first node inside the linked list
+
+        while(node){ //when we first enter the while loop, if the linked list does not have a head node assigned to it, then the while loop will check to see if node is a truthy or falsy value. If this.head does not exist, then the while loop will fail and won't run.
+            //if there is a head node, then the loop will run
+            if(counter = index){
+                return node
+            } else {
+                counter++; //increment the counter by 1 bc we just found one node.
+                node = node.next; //reassign 'node' to the next property of the current node. Eventually node = null when we reach the tail and the loop will stop running.
+            }
+            
+        }
+    }
+    
  }
 
 //real usage of linked list:
