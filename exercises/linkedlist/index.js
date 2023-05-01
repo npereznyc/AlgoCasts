@@ -83,9 +83,12 @@ class LinkedList {
         previous.next=null //when the while loop is done running, we will have reached the end of the list, so we assign previous.next to null, which eliminates the current node(the last node)
     }
 
-    insertLast(Data){
-        const node = new Node(Data)
-        const lastNode = getLast()
+    insertLast(data){
+        const node = new Node(data)
+        if(!this.head){
+            this.head = node
+        }
+        const lastNode = this.getLast()
         lastNode.next = node
     }
     //called with a Data argument.
