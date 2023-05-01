@@ -82,6 +82,16 @@ class LinkedList {
         }
         previous.next=null //when the while loop is done running, we will have reached the end of the list, so we assign previous.next to null, which eliminates the current node(the last node)
     }
+
+    insertLast(Data){
+        const node = new Node(Data)
+        const lastNode = getLast()
+        lastNode.next = node
+    }
+    //called with a Data argument.
+    //create a new node, stick Data into that node, and then insert that into the very end of the list
+    // get a reference to the current last node...the current last node's next property points to the new node - can use getLast() method
+    //handle the case where the list is empty (there is no last node)...in this case, the head property needs to point to the new node
  }
 
 //real usage of linked list:
