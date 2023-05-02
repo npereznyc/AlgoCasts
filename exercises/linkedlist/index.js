@@ -91,24 +91,49 @@ class LinkedList {
         const node = new Node(data)
         if (!this.head) {
             this.head = node
+        } else {
+          const lastNode = this.getLast()
+          lastNode.next = node  
         }
-        const lastNode = this.getLast()
-        lastNode.next = node
+        
     }
 
     getAt(index) {
         let counter = 0;
         let node = this.head;
-
         while (node) {
             if (counter === index) {
-                return node
+                return node;
             }
+
             counter++;
             node = node.next;
         }
-        return;
-        //this return should be return null - for some reason this is breaking my jest tests.
+        return null;
+    }
+
+   
+
+    removeAt(index) {
+        //account for an empty list:
+        if (!this.head) {
+            return;
+        }
+        //account for trying to remove first node:
+        if (index === 0) {
+            this.head = this.head.next
+            return;
+        }
+        //use getAt to get the node previous to the one we're looking for
+        const previous = this.getAt(index - 1)
+        
+        //account for an index that's beyond the length of the list:
+        if(!previous || !previous.next){
+            return;
+        }
+        //reassign 'next' of the previous node to the node following the one we're looking for, effecitvley removing that node from the list 
+        previous.next = this.getAt(index + 1)
+
     }
 
 
