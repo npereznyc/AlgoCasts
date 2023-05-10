@@ -136,6 +136,31 @@ class LinkedList {
 
     }
 
+    insertAt(data, index){
+        //account for instance where list is empty
+        //account for instance where provided index is out of bounds (insert new node at end) - if index is greater than list length, add to end
+        //can use getAt to get a reference to the previous node in a chain (index-1)
+        //create new node
+        //make previous point to new node
+        //new node points to the old following node
+
+        const node = new Node(data)
+        const previous= this.getAt(index-1)
+        if (!this.head){
+            this.head=node
+        } else if(index>=this.size()){
+            this.insertLast(data)
+        } else if (index === 0) {
+            this.insertFirst(data)
+        } else {
+            node.next=this.head.next.next
+            previous.next=node
+        }
+     
+        
+
+    }
+
 
 }
 
