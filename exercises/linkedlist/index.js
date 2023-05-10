@@ -144,20 +144,34 @@ class LinkedList {
         //make previous point to new node
         //new node points to the old following node
 
-        const node = new Node(data)
-        const previous= this.getAt(index-1)
-        if (!this.head){
-            this.head=node
-        } else if(index>=this.size()){
-            this.insertLast(data)
-        } else if (index === 0) {
-            this.insertFirst(data)
-        } else {
-            node.next=this.head.next.next
-            previous.next=node
+        // const node = new Node(data)
+        // const previous= this.getAt(index-1)
+        // if (!this.head){
+        //     this.head=node
+        //     return;
+        // } else if(index>=this.size()){
+        //     this.insertLast(data)
+        //     return;
+        // } else if (index === 0) {
+        //     this.insertFirst(data)
+        //     return;
+        // } else {
+        //     node.next=this.head.next.next
+        //     previous.next=node
+        // }
+
+        //alternative solution:
+        if(!this.head){
+            this.head=new Node(data)
+            return;
         }
-     
-        
+        if(index ===0){
+            this.head = new Node(data, this.head)
+            return;
+        }
+        const previous = this.getAt(index-1) || this.getLast()
+        const node = new Node(data, previous.next)
+        previous.next= node;
 
     }
 
