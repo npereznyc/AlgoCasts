@@ -18,18 +18,27 @@ function midpoint(list) {
     //assign both to head node
     //iterate with while loop - advance slow by 1 and fast by 2
     //after we advance 'fast', check to see if next node and next next are defined....if they do, keep iterating...if not, fast must be at the end of the linked list and slow is at the midpoint.
-    let slow =list.head
-    let fast=list.head
+    // let slow =list.head
+    // let fast=list.head
 
-    while(list.head) {
-        if(!fast.next || !fast.next.next){
-            return slow 
-        } else {
-            slow=slow.next
-            fast=fast.next.next
-        }
+    // while(list.head) {
+    //     if(!fast.next || !fast.next.next){
+    //         return slow 
+    //     } else {
+    //         slow=slow.next
+    //         fast=fast.next.next
+    //     }
+    // }
+
+    //alternative solution(from udemy):
+    let slow=list.getFirst()
+    let fast=list.getFirst()
+
+    while(fast.next && fast.next.next){
+        slow=slow.next;
+        fast=fast.next.next;
     }
-
+    return slow
 }
 
 module.exports = midpoint;
