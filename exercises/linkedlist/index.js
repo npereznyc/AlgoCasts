@@ -160,7 +160,7 @@ class LinkedList {
         //     previous.next=node
         // }
 
-        //alternative solution:
+        //alternative solution (Udemy solution):
         if(!this.head){
             this.head=new Node(data)
             return;
@@ -174,7 +174,6 @@ class LinkedList {
         previous.next= node;
 
     }
-
 
 }
 
